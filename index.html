@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="bg-gray-50">
+
+    <main class="py-10 px-[20%]">
+
+        <!-- HEADER -->
+        <section class="flex justify-center items-center my-5">
+            <div class="w-full p-5 border rounded-lg flex justify-between items-center">
+                <h1 class="text-lg font-semibold">All Task - Frengki Iskandar</h1>
+                <div class="flex gap-2">
+                    <button 
+                        id="openFilterBtn"
+                        class="px-4 py-2 bg-blue-700 text-white rounded-lg">
+                        Filter Task
+                    </button>
+
+                    <button class="px-4 py-2 bg-red-700 text-white rounded-lg" onclick="resetList()">
+                        Remove Task
+                    </button>
+                </div>
+            </div>
+        </section>
+        <ul id="todo-list" class="mt-6 space-y-4"></ul>
+
+        <!-- FORM -->
+        <div>
+            <form onsubmit="submitList(event)" class="flex flex-col justify-start items-start gap-5">
+
+                <div class="flex flex-col justify-start items-start gap-1 w-full mt-5">
+                    <label>Judul</label>
+                    <input id="todo-title" type="text" class="outline-none border rounded-lg px-3 py-2 w-full">
+                </div>
+
+                <div class="flex flex-col justify-start items-start gap-1 w-full">
+                    <label>Deskripsi</label>
+                    <textarea id="todo-desc" class="h-40 outline-none border rounded-lg px-3 py-2 w-full"></textarea>
+                </div>
+
+                <div class="flex flex-col justify-start items-start gap-1 w-full">
+                    <label>Tanggal</label>
+                    <input id="todo-date" type="date" class="outline-none border rounded-lg px-3 py-2 w-full">
+                </div>
+
+                <div class="w-full flex justify-end items-center">
+                    <button class="px-4 py-2 bg-blue-700 text-white rounded-lg">
+                        Add New Task
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- ===================== MODAL FILTER ===================== -->
+   <div id="filterModal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center">
+    <div class="bg-white w-80 p-5 rounded-lg shadow-lg space-y-4">
+
+        <h2 class="text-lg font-semibold">Filter Task by Title</h2>
+
+        <input id="filter-input" 
+            type="text" 
+            placeholder="Enter title keyword..."
+            class="w-full px-3 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+
+        <button 
+            onclick="filterByTitle()"
+            class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+            Apply Filter
+        </button>
+
+        <button 
+            id="closeFilterBtn"
+            class="w-full bg-gray-300 text-gray-800 py-2 rounded-lg hover:bg-gray-400 transition">
+            Cancel
+        </button>
+
+    </div>
+</div>
+
+
+    <!-- ===================== SCRIPT ===================== -->
+    
+
+<script src="js/javas.js"></script>
+</body>
+</html>
